@@ -1,0 +1,9 @@
+<h1> This will be the homepage </h1>
+
+<% @lists.each do |list| %>
+      <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://source.unsplash.com/featured/?movie)">
+          <%= link_to list.name, list_path(list) %>
+      </div>
+<% end %>
+
+<%= link_to 'Create a new list', new_list_path %>
