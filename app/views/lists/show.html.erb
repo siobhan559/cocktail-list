@@ -1,0 +1,23 @@
+<h1> Showing just one list </h1>
+
+<h2> <%= @list.name %> </h2>
+<h2> <%= @list.description %> </h2>
+
+<h4> This will be all the cocktails in the list </h4>
+<ul>
+  <% @bookmarks.each do |bookmark| %>
+    <li> <%= bookmark.cocktail.name %> </li>
+    <p> <%= bookmark.cocktail.preparation %> </p>
+    <p> <%= bookmark.cocktail.glass %> </p>
+    <%= link_to 'Remove from list', bookmark_path(bookmark), method: :delete, data: { confirm: 'Are you definitely sure?' }%>
+  <% end %>
+</ul>
+
+<h5> Add a new cocktail to this list </h5>
+
+<%= simple_form_for [@list, @bookmark] do |f| %>
+  <%= f.association :cocktail %>
+  <%= f.submit %>
+<% end %>
+
+<%= link_to 'Back to homepage', root_path %>
