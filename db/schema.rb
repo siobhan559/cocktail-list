@@ -10,10 +10,19 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_09_29_145906) do
+ActiveRecord::Schema.define(version: 2021_09_29_153743) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "bookmarks", force: :cascade do |t|
+    t.bigint "cocktail_id", null: false
+    t.bigint "list_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["cocktail_id"], name: "index_bookmarks_on_cocktail_id"
+    t.index ["list_id"], name: "index_bookmarks_on_list_id"
+  end
 
   create_table "cocktails", force: :cascade do |t|
     t.string "name"
@@ -23,4 +32,13 @@ ActiveRecord::Schema.define(version: 2021_09_29_145906) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
+  create_table "lists", force: :cascade do |t|
+    t.string "name"
+    t.text "description"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  add_foreign_key "bookmarks", "cocktails"
+  add_foreign_key "bookmarks", "lists"
 end
