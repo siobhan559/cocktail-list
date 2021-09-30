@@ -17,3 +17,9 @@ import 'bootstrap';
 //
 // const images = require.context('../images', true)
 // const imagePath = (name) => images(name, true)
+
+import { scrollListener } from "../components/scroll_btn"
+
+window.addEventListener('turbolinks:load', () => {
+  scrollListener();
+});

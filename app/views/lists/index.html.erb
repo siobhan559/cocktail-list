@@ -4,10 +4,10 @@
     <div class="container">
       <h1>Fancy a drink?</h1>
       <h2>Find tonight's tipple here...</h2>
-      <%= link_to "Enter the bar", "#", class: "btn btn-ghost" %>
+      <%= link_to "Enter the bar", "#", class: "btn btn-ghost" id: "scroll-btn" %>
     </div>
   </div>
-  <div class="list-container">
+  <div id="list-container">
     <% @lists.each do |list| %>
           <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://source.unsplash.com/featured/?movie)">
               <%= link_to list.name, list_path(list) %>
