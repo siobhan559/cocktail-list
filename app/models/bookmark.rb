@@ -1,5 +1,5 @@
 class Bookmark < ApplicationRecord
-  belongs_to :movie
+  belongs_to :cocktail
   belongs_to :list
 
 end
