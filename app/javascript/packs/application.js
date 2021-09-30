@@ -7,6 +7,7 @@ require("@rails/ujs").start()
 require("turbolinks").start()
 require("@rails/activestorage").start()
 require("channels")
+require('@popperjs/core');
 require("bootstrap")
 import 'bootstrap';
 
@@ -17,3 +18,11 @@ import 'bootstrap';
 //
 // const images = require.context('../images', true)
 // const imagePath = (name) => images(name, true)
+
+import { scrollListener } from "../components/scroll_btn"
+
+document.addEventListener('turbolinks:load', () => {
+  if (document.getElementById('scroll-btn')) {
+    scrollListener();
+  };
+});
