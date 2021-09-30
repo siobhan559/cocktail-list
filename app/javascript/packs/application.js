@@ -7,6 +7,7 @@ require("@rails/ujs").start()
 require("turbolinks").start()
 require("@rails/activestorage").start()
 require("channels")
+require('@popperjs/core');
 require("bootstrap")
 import 'bootstrap';
 
@@ -20,6 +21,8 @@ import 'bootstrap';
 
 import { scrollListener } from "../components/scroll_btn"
 
-window.addEventListener('turbolinks:load', () => {
-  scrollListener();
+document.addEventListener('turbolinks:load', () => {
+  if (document.getElementById('scroll-btn')) {
+    scrollListener();
+  };
 });
